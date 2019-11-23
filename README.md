@@ -19,7 +19,17 @@ $ pip install -r requirements.txt
 For Client
 
 ```bash
-$ client.py key [-h] [--set SET] [--watch] [--root http://localhost:8080/]
+$ client.py [-h] <key> [--set] [--watch] [--root http://0.0.0.0:8080]
+
+positional arguments:
+  key
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --set 
+  --watch
+  --root http://0.0.0.0:8080
+
 ```
 For Server
 
@@ -41,12 +51,12 @@ $ server.py
 $ client.py random-key --watch
 {"random-key": "12345"}
 ```
-<key> set: Sets the value of the given key.
+<key> set: sets the value of the given key.
 
 ```bash
 $ client.py random-key --set 12345
 ```
-<key> root (i.e. get) : Displays the value of an existing key over HTTP.
+<key> root (i.e. get) : displays the value of an existing key over HTTP.
 
 ```bash
 $ client.py random-key --root http://0.0.0.0:8080
