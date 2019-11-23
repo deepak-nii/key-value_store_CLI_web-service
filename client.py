@@ -4,12 +4,11 @@ import requests as R
 import argparse
 
 parser = argparse.ArgumentParser()
-parser.add_argument("key")
-parser.add_argument("--set", type=str)
+parser.add_argument("key", metavar=('key'))
+parser.add_argument("--set", metavar=(''), type=str)
 parser.add_argument("--watch", action="store_true", default=False)
-parser.add_argument("--root", type=str, default="http://localhost:8080")
+parser.add_argument("--root", metavar=('http://0.0.0.0:8080'), type=str, default="http://0.0.0.0:8080")
 args = parser.parse_args()
-
 
 async def watch():
     async with aiohttp.ClientSession() as session:
@@ -19,7 +18,6 @@ async def watch():
                     print(msg.data)
                 elif msg.type == aiohttp.WSMsgType.ERROR:
                     break
-
 
 if args.set:
     r = R.post(args.root + f"/{args.key}", json={"value": args.set})
