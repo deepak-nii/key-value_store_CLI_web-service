@@ -2,7 +2,7 @@
 
 A CLI client which consumes the web service supporting following commands:
 - get <key>: displays the value of an existing key over HTTP.
-- put <key> <value>: sets the value of the given key.
+- set <key> <value>: sets the value of the given key.
 - watch <key>: when executed this displays any new changes happening on the KV store in real time to the given key.
 
 ## Installation
@@ -16,22 +16,39 @@ $ pip install -r requirements.txt
 ```
 ## Usage
 
-For client.py
+For Client
 
 ```bash
 $ client.py key [-h] [--set SET] [--watch] [--root http://localhost:8080/]
 ```
-For server.py
+For Server
 
 ```bash
 $ server.py
 ```
 
 ## Example
-The input file should contain domains one per line. The script will output discovered domains.
+For server
 
 ```bash
-$ python3 git_file_disclosure.py domain.txt 
-www.connorrealestate.com is vulnerable
-codemirror.net is vulnerable
+$ server.py
+======== Running on http://0.0.0.0:8080 ========
+(Press CTRL+C to quit)
+```
+<key> watch: When executed this displays any new changes happening on the KV store in real time to the given key.
+
+```bash
+$ client.py random-key --watch
+{"random-key": "12345"}
+```
+<key> set: Sets the value of the given key.
+
+```bash
+$ client.py random-key --set 12345
+```
+<key> root (i.e. get) : Displays the value of an existing key over HTTP.
+
+```bash
+$ client.py random-key --root http://0.0.0.0:8080
+{'random-key': '12345'}
 ```
