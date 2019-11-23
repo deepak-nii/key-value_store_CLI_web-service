@@ -7,19 +7,24 @@ A CLI client which consumes the web service supporting following commands:
 
 ## Installation
 
-This script supports both Python 2.x and Python 3.x
+This script supports only Python 3.x
 
 ```bash
-$ pip install pipenv --user
-$ git clone git@gitlab.com:theSage21/deepak.git
-$ cd deep
+$ git clone https://github.com/deepak-nii/key-value_store_CLI_web-service.git
+$ cd key-value_store_CLI_web-service
+$ pip install -r requirements.txt
 ```
 ## Usage
 
-This script supports both Python 2.x and Python 3.x
+For client.py
 
 ```bash
-$ git_file_disclosure.py [-h] file
+$ client.py key [-h] [--set SET] [--watch] [--root http://localhost:8080/]
+```
+For server.py
+
+```bash
+$ server.py
 ```
 
 ## Example
