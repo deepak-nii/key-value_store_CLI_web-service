@@ -12,8 +12,7 @@ This script supports both Python 2.x and Python 3.x
 ```bash
 $ pip install pipenv --user
 $ git clone git@gitlab.com:theSage21/deepak.git
-$ cd deepak
-$ pipenv install --deploy
+$ cd deep
 ```
 ## Usage
 
